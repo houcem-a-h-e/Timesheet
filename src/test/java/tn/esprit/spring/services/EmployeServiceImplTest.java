@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -52,14 +53,18 @@ class EmployeServiceImplTest {
  	
  
  
-/* 
 	@Test
 	void testAjouterEmploye() {
 		Employe emp=new Employe("rami", "joudi", "r@gmail.com", true, Role.INGENIEUR);
- 
-		given(empRep.save(emp)).willReturn(emp);
+		empService.ajouterEmploye(emp);
+		
+		ArgumentCaptor<Employe> empArgumentCaptor= ArgumentCaptor.forClass(Employe.class);
+		
+		verify(empRep).save(empArgumentCaptor.capture());
+		
+		Employe capturedEmp=empArgumentCaptor.getValue();
 	 
-		assertThat(empService.getAllEmployes()).isNotNull();
+		assertThat( capturedEmp).isEqualTo(emp);
 		
 	}
 
