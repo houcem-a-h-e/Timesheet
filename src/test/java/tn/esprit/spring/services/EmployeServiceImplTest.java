@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,6 +34,7 @@ class EmployeServiceImplTest {
 		 
 ;
 	}
+	
  	@Test 
  	void testGetAllEmployes() {
  		Employe emp1=new Employe("rami", "joudi", "r@gmail.com", true, Role.INGENIEUR);
@@ -43,21 +45,21 @@ class EmployeServiceImplTest {
  		//test
  		 
  		l.info("test..");	 
- 		assertThat(empRep.findAll()).hasSize(2);
- 		 
- 		
- 	        
- 		 
- 		 
+ 		assertThat(empService.getAllEmployes()).hasSize(2);
+ 		 		 
 		 
  	}
  	
  
-	
- /*
+ 
+/* 
 	@Test
 	void testAjouterEmploye() {
 		Employe emp=new Employe("rami", "joudi", "r@gmail.com", true, Role.INGENIEUR);
+ 
+		given(empRep.save(emp)).willReturn(emp);
+	 
+		assertThat(empService.getAllEmployes()).isNotNull();
 		
 	}
 
