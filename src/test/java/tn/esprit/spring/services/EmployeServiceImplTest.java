@@ -47,7 +47,8 @@ class EmployeServiceImplTest {
  		 
  		l.info("test..");	 
  		assertThat(empService.getAllEmployes()).hasSize(2);
- 		 		 
+ 		
+ 		l.info("test passed :) ");			 
 		 
  	}
  	
@@ -65,8 +66,26 @@ class EmployeServiceImplTest {
 		Employe capturedEmp=empArgumentCaptor.getValue();
 	 
 		assertThat( capturedEmp).isEqualTo(emp);
+		l.info("test passed :) ");	
 		
 	}
+	@Test
+	void testDeleteEmployeById() {
+		Employe emp=new Employe("rami", "joudi", "r@gmail.com", true, Role.INGENIEUR);
+		emp.setId(1);
+		//test
+		
+		empRep.deleteById(1);
+		verify(empRep,times(1)).deleteById(1);
+		l.info("test passed :) ");	
+		
+	}
+	/*@Test
+	void testAjouterContrat() {
+		fail("Not yet implemented");
+	}
+	
+	
 
 /*
 	@Test
@@ -87,11 +106,7 @@ class EmployeServiceImplTest {
 		fail("Not yet implemented");
 	}
 
-	@Test
-	@Disabled
-	void testAjouterContrat() {
-		fail("Not yet implemented");
-	}
+	
 
 	@Test
 	@Disabled
@@ -104,11 +119,7 @@ class EmployeServiceImplTest {
 		fail("Not yet implemented");
 	}
 
-	@Test
-	@Disabled
-	void testDeleteEmployeById() {
-		fail("Not yet implemented");
-	}
+	
 
 	@Test
 	@Disabled

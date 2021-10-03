@@ -33,7 +33,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
  
 	public EmployeServiceImpl(EmployeRepository employeRepository) {
-	 
+		
 		this.employeRepository = employeRepository;
 	}
 
