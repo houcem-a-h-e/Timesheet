@@ -74,13 +74,13 @@ public class EmployeServiceImpl implements IEmployeService {
 		}
 	}
 
-	public void affecterContratAEmploye(int contratId, int employeId) {
+	public Contrat affecterContratAEmploye(int contratId, int employeId) {
 		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
 		Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
 		contratManagedEntity.setEmploye(employeManagedEntity);
 		contratRepoistory.save(contratManagedEntity);
-		
+		return contratManagedEntity;
 	}
 
 	public String getEmployePrenomById(int employeId) {
