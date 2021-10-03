@@ -31,6 +31,12 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Autowired
 	TimesheetRepository timesheetRepository;
 
+ 
+	public EmployeServiceImpl(EmployeRepository employeRepository) {
+	 
+		this.employeRepository = employeRepository;
+	}
+
 	public int ajouterEmploye(Employe employe) {
 		employeRepository.save(employe);
 		return employe.getId();
