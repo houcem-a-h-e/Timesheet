@@ -29,6 +29,8 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Autowired
 	ContratRepository contratRepoistory;
 	@Autowired
+	ContratServiceImpl contratService;
+	@Autowired
 	TimesheetRepository timesheetRepository;
 
 	public int ajouterEmploye(Employe employe) {
@@ -75,11 +77,11 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public Contrat affecterContratAEmploye(int contratId, int employeId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
+		Contrat contratManagedEntity = contratService.findContratById(contratId);
 		Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
 		contratManagedEntity.setEmploye(employeManagedEntity);
-		contratRepoistory.save(contratManagedEntity);
+		contratService.ajouterContrat(contratManagedEntity);
 		return contratManagedEntity;
 	}
 

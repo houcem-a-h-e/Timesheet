@@ -42,4 +42,9 @@ public class ContratServiceImpl implements IContratService {
 		return cr.count();
 	}
 
+	@Override
+	public Contrat findContratById(int id) {
+		return cr.findById(id).get();
+	}
+
 }

@@ -10,4 +10,5 @@ public interface IContratService {
 	public int ajouterContrat(Contrat contrat);
 	public void deleteContratById(int contratId);
 	public long nombreDeContrats();
+	public Contrat findContratById(int id);
 }

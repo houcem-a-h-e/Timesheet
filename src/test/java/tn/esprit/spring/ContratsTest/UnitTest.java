@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,7 +27,7 @@ import tn.esprit.spring.services.IEmployeService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CrudTest {
+public class UnitTest {
 	@Autowired
 	IContratService cs;
 	@Autowired
@@ -35,9 +36,8 @@ public class CrudTest {
 	@MockBean
 	private ContratRepository cr;
 
-	private static final Logger l = LogManager.getLogger(CrudTest.class);
+	private static final Logger l = LogManager.getLogger(UnitTest.class);
 
-	
 	@Test(timeout = 2000)
 	public void getAllTest() {
 		l.info("entring to test getAllContrats");
@@ -59,8 +59,18 @@ public class CrudTest {
 		when(cr.findAll()).thenReturn(Stream.of(c1, c2, c3).collect(Collectors.toList()));
 		assertEquals(3, cs.getAll().size());
 	}
-
 	
+	@Test
+	public void findByIdTest() {
+		Contrat c1 = new Contrat();
+		c1.setReference(100);
+		c1.setDateDebut(new Date());
+		c1.setSalaire(11);
+		c1.setTypeContrat("CDD");
+		when(cr.findById(100)).thenReturn(Optional.of(c1));
+		assertEquals(c1, cs.findContratById(100));
+	}
+
 	@Test(timeout = 2000)
 	public void addandDeleteContratTest() {
 
@@ -89,50 +99,17 @@ public class CrudTest {
 		l.info("test add contrat success");
 	}
 
-	
-	/*
-	 * error not solved yet related to using mock
-	 * cant find contrat when affecting empl to contrat
-	 * */
 	@Test(timeout = 2000)
 	public void affectEmplToContrat() {
+
 		Contrat c = new Contrat();
 		c.setReference(250);
 		c.setDateDebut(new Date());
 		c.setSalaire(100);
 		c.setTypeContrat("CDD");
-		int idContrat = cs.ajouterContrat(c);
+		when(cr.findById(250)).thenReturn(Optional.of(c));
 		List<Employe> allEmloyes = es.getAllEmployes();
-		es.affecterContratAEmploye(idContrat, allEmloyes.get(0).getId());
+		c = es.affecterContratAEmploye(c.getReference(), allEmloyes.get(0).getId());
 		assertEquals(c.getEmploye().getId(), cs.getById(c.getReference()).getEmploye().getId());
-		
-		
-		
-		
-		/*
-		 * Contrat c = new Contrat();
-		c.setReference(250);
-		c.setDateDebut(new Date());
-		c.setSalaire(100);
-		c.setTypeContrat("CDD");
-		
-		Employe e = new Employe();
-		e.setActif(true);
-		e.setEmail("egzmgmzg@gaemgmaeg.gr");
-		e.setId(2);
-		e.setNom("aa");
-		e.setPrenom("bb");
-		e.setRole(Role.ADMINISTRATEUR);
-		when(cr.save(c)).thenReturn(c);
-		when(cr.findById(c.getReference()).get()) 
-		.thenReturn(c);
-		when(er.save(e)).thenReturn(e);
-		when(er.findById(e.getId()).get()) 
-		.thenReturn(e);
-		l.info("affichage e: " + e.getId());
-		Contrat c1= c;
-		c1.setEmploye(e);
-		assertEquals(c1, es.affecterContratAEmploye(c.getReference(), e.getId()));*/
-		
 	}
 }
