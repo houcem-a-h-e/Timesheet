@@ -74,18 +74,13 @@ public class EmployeServiceImpl implements IEmployeService {
 		}
 	}
 
-	public int ajouterContrat(Contrat contrat) {
-		contratRepoistory.save(contrat);
-		return contrat.getReference();
-	}
-
-	public void affecterContratAEmploye(int contratId, int employeId) {
+	public Contrat affecterContratAEmploye(int contratId, int employeId) {
 		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
 		Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
 		contratManagedEntity.setEmploye(employeManagedEntity);
 		contratRepoistory.save(contratManagedEntity);
-		
+		return contratManagedEntity;
 	}
 
 	public String getEmployePrenomById(int employeId) {
@@ -104,12 +99,6 @@ public class EmployeServiceImpl implements IEmployeService {
 		}
 
 		employeRepository.delete(employe);
-	}
-
-	public void deleteContratById(int contratId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		contratRepoistory.delete(contratManagedEntity);
-
 	}
 
 	public int getNombreEmployeJPQL() {
