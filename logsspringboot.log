@@ -1,0 +1,30 @@
+2021-10-19 23:28:41.355  INFO 17884 --- [main] SpringBootCoreDataJpaMvcRest1Application : Starting TimesheetSpringBootCoreDataJpaMvcRest1Application on DESKTOP-P8RQIG1 with PID 17884 (C:\Users\HP\Desktop\TimesheetProject\target\classes started by HP in C:\Users\HP\Desktop\TimesheetProject)
+2021-10-19 23:28:41.364  INFO 17884 --- [main] SpringBootCoreDataJpaMvcRest1Application : No active profile set, falling back to default profiles: default
+2021-10-19 23:28:42.577  INFO 17884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-10-19 23:28:42.696  INFO 17884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 107ms. Found 6 repository interfaces.
+2021-10-19 23:28:43.167  INFO 17884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3c6448a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-19 23:28:43.646  INFO 17884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2021-10-19 23:28:43.681  INFO 17884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-19 23:28:43.681  INFO 17884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2021-10-19 23:28:43.997  INFO 17884 --- [main] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring embedded WebApplicationContext
+2021-10-19 23:28:43.998  INFO 17884 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2575 ms
+2021-10-19 23:28:44.333  INFO 17884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-19 23:28:44.787  INFO 17884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-19 23:28:44.877  INFO 17884 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-10-19 23:28:45.023  INFO 17884 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2021-10-19 23:28:45.026  INFO 17884 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-10-19 23:28:45.331  INFO 17884 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-10-19 23:28:45.600  INFO 17884 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-19 23:28:48.422  INFO 17884 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-19 23:28:48.840  INFO 17884 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-10-19 23:28:49.590  INFO 17884 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-19 23:28:49.662  WARN 17884 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-19 23:28:50.268  INFO 17884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path '/SpringMVC'
+2021-10-19 23:28:50.273  INFO 17884 --- [main] SpringBootCoreDataJpaMvcRest1Application : Started TimesheetSpringBootCoreDataJpaMvcRest1Application in 10.202 seconds (JVM running for 13.235)
+2021-10-19 23:30:09.664  INFO 17884 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-10-19 23:30:09.667  INFO 17884 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-10-19 23:30:09.671  INFO 17884 --- [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-19 23:30:09.675  INFO 17884 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-19 23:30:09.686  INFO 17884 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
