@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestControlDepartment {
 
-	@PostMapping("/ajouterDepartement")
+	/*@PostMapping("/ajouterDepartement")
 	@ResponseBody
 	public int ajouterDepatment() {
 		return 1;
-	}
+	}*/
 }

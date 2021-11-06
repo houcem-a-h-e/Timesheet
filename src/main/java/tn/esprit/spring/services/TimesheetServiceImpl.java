@@ -101,5 +101,14 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	public List<Employe> getAllEmployeByMission(int missionId) {
 		return timesheetRepository.getAllEmployeByMission(missionId);
 	}
+	
+	@Override
+	public TimesheetPK addTimeSheet(TimesheetPK tspk, Timesheet ts) {
+		
+		ts.setTimesheetPK(tspk);
+		timesheetRepository.save(ts);
+		 return tspk;
+		
+	}
 
 }
